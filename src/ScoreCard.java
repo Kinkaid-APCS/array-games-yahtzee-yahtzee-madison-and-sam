@@ -43,7 +43,13 @@ public class ScoreCard {
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
-	
+
+	private int upperSectionTotal = -1;
+	private int lowerSectionTotal = -1;
+	private int grandTotal = -1;
+
+
+
 	/**
 	 * constructor - set up an empty scorecard.
      * Suggestion: start all scores as -1, since it is possible that the user
@@ -53,6 +59,28 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
+
+		int myAceCount = -1;
+		int myTwosCount = -1;
+		int myThreesCount = -1;
+		int myFoursCount = -1;
+		int myFivesCount = -1;
+		int mySixesCount = -1;
+		boolean upperSectionBonus = false;
+
+		int my3OfAKind = -1;
+		int my4OfAKind = -1;
+		int myFullHouse = -1;
+		int mySMStraight = -1;
+		int myLGStraight = -1;
+		int myYahtzee = -1;
+		int myChance = -1;
+		boolean yahtzeeBonusCheck = false;
+		int numOfYahtzeeBonuses = -1;
+
+		this.lowerSectionTotal = myAceCount + myTwosCount + myThreesCount + myFoursCount + myFivesCount + mySixesCount;
+
+
 		
 		//--------------------
 	}
