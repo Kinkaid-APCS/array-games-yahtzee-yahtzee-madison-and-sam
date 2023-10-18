@@ -43,7 +43,13 @@ public class ScoreCard {
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
-	
+
+	private int upperSectionTotal = 0;
+	private int lowerSectionTotal = 0;
+	private int grandTotal = 0;
+
+
+
 	/**
 	 * constructor - set up an empty scorecard.
      * Suggestion: start all scores as -1, since it is possible that the user
