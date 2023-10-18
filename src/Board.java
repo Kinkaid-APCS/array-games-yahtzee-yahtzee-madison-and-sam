@@ -123,7 +123,44 @@ public class Board {
 	// polite suggestion... break this into smaller methods for the various categories. Some of these methods, like the
 	//    ones at the top of the card might work for more than one category. Others, like for full house, might be more
 	//    specialized....
-	public getScoreForCategory(){
+	public int getScoreForCategory(int category){
+		if(category <=5 && category>=0){
+			return(getScoreForUppers());
+		}
+		if(category== 6 || category==7){
+			return(getScoreForXofKind());
+		}
+		if(category== 8){
+			return(getScoreForFullHouse());
+		}
+		if(category== 9 || category==10){
+			return (getScoreForStraights());
+		}
+		if(category== 11){
+			return(getScoreForYahtzee());
+		}
+		if(category== 12) {
+			return (getScoreForChance());
+		}
+		return -1;
+
+	}
+	public int getScoreForUppers(){
+
+	}
+	public int getScoreForStraights(){
+
+	}
+	public int getScoreForYahtzee(){
+
+	}
+	public int getScoreForChance(){
+
+	}
+	public int getScoreForFullHouse(){
+
+	}
+	public int getScoreForXofKind(){
 
 	}
 
