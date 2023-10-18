@@ -15,11 +15,18 @@ public class Board {
 
 	// TODO: decide which private member variables Board needs and declare them here. 
 	//          HINT: See the note above!
+	private int[] frequencyList = new int[7];
+	private int[] myDice = new int[5];
+	private Referee myRef;
+
 	
 	/**
 	 * constructor - set up initial values for the board.
 	 */
 	// TODO: write the Board's constructor
+	Board(){
+
+	}
 	
 	/**
 	 * toString - creates a string depicting the dice on the board.
@@ -52,6 +59,23 @@ public class Board {
 			// so now "letter" is one of the letters in the string.
 			// TODO: write code here to look at "letter" and based on it, 
 			//       decide whether to re-roll one of the dice.
+			if(letter.equals("A")){
+				myRef.rollDice("A");
+			}
+			if(letter.equals("B")){
+				myRef.rollDice("B");
+			}
+			if(letter.equals("C")){
+				myRef.rollDice("C");
+			}
+			if(letter.equals("D")){
+				myRef.rollDice("D");
+			}
+			if(letter.equals("E")){
+				myRef.rollDice("E");
+			}
+
+
 		}
 	
 	}
@@ -66,7 +90,9 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		
+		for(int i=0; i<= myDice.length; i++){
+			frequencyList[myDice[i]] ++;
+		}
 		// ---------------------------
 	}
 	
@@ -97,6 +123,9 @@ public class Board {
 	// polite suggestion... break this into smaller methods for the various categories. Some of these methods, like the
 	//    ones at the top of the card might work for more than one category. Others, like for full house, might be more
 	//    specialized....
+	public getScoreForCategory(){
+
+	}
 
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
