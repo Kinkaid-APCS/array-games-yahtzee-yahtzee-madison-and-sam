@@ -151,18 +151,40 @@ public class Board {
 	public int getScoreForStraights(int category){
 
 		if (category==9){
-			boolean smStraight = false;
 
-			for( int i = 1; i<= 4;i++){
-				if( frequencyList[i]>0){
-					if(frequencyList[i+1]>0){
-						if (frequencyList[i+2]>0){
-							return(30);
-						}
+			for( int i = 1; i<= 3;i++){
+				boolean smStraight=true;
+				for (int j=0; j<=3;j++){
+					if (frequencyList[i+j]==0){
+						smStraight=false;
+						break;
 					}
+
+				}
+				if (smStraight){
+					return(30);
 				}
 			}
+			return(0);
 		}
+		if (category==10){
+			for( int i = 1; i<= 2;i++){
+				boolean lgStraight=true;
+				for (int j=0; j<=4;j++){
+					if (frequencyList[i+j]==0){
+						lgStraight=false;
+						break;
+					}
+
+				}
+				if (lgStraight){
+					return(40);
+				}
+			}
+			return(0);
+		}
+		return(-1);
+
 	}
 	public int getScoreForYahtzee(int category){
 
