@@ -125,42 +125,55 @@ public class Board {
 	//    specialized....
 	public int getScoreForCategory(int category){
 		if(category <=5 && category>=0){
-			return(getScoreForUppers());
+			return(getScoreForUppers(category));
 		}
 		if(category== 6 || category==7){
-			return(getScoreForXofKind());
+			return(getScoreForXofKind(category));
 		}
 		if(category== 8){
-			return(getScoreForFullHouse());
+			return(getScoreForFullHouse(category));
 		}
 		if(category== 9 || category==10){
-			return (getScoreForStraights());
+			return (getScoreForStraights(category));
 		}
 		if(category== 11){
-			return(getScoreForYahtzee());
+			return(getScoreForYahtzee(category));
 		}
 		if(category== 12) {
-			return (getScoreForChance());
+			return (getScoreForChance(category));
 		}
 		return -1;
 
 	}
-	public int getScoreForUppers(){
+	public int getScoreForUppers(int category){
+		return((category+1)*frequencyList[category+1]);
+	}
+	public int getScoreForStraights(int category){
+
+		if (category==9){
+			boolean smStraight = false;
+
+			for( int i = 1; i<= 4;i++){
+				if( frequencyList[i]>0){
+					if(frequencyList[i+1]>0){
+						if (frequencyList[i+2]>0){
+							return(30);
+						}
+					}
+				}
+			}
+		}
+	}
+	public int getScoreForYahtzee(int category){
 
 	}
-	public int getScoreForStraights(){
+	public int getScoreForChance(int category){
 
 	}
-	public int getScoreForYahtzee(){
+	public int getScoreForFullHouse(int category){
 
 	}
-	public int getScoreForChance(){
-
-	}
-	public int getScoreForFullHouse(){
-
-	}
-	public int getScoreForXofKind(){
+	public int getScoreForXofKind(int category){
 
 	}
 
