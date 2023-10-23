@@ -131,16 +131,16 @@ public class Board {
 			return(getScoreForXofKind(category));
 		}
 		if(category== 8){
-			return(getScoreForFullHouse(category));
+			return(getScoreForFullHouse());
 		}
 		if(category== 9 || category==10){
 			return (getScoreForStraights(category));
 		}
 		if(category== 11){
-			return(getScoreForYahtzee(category));
+			return(getScoreForYahtzee());
 		}
 		if(category== 12) {
-			return (getScoreForChance(category));
+			return (getScoreForChance());
 		}
 		return -1;
 
@@ -186,13 +186,22 @@ public class Board {
 		return(-1);
 
 	}
-	public int getScoreForYahtzee(int category){
-
+	public int getScoreForYahtzee(){
+		for(int frequency: frequencyList){
+			if (frequency==5){
+				return(50);
+			}
+		}
+		return(0);
 	}
-	public int getScoreForChance(int category){
-
+	public int getScoreForChance(){
+		int total = 0;
+		for(int die : myDice){
+			total+=die;
+		}
+		return(total);
 	}
-	public int getScoreForFullHouse(int category){
+	public int getScoreForFullHouse(){
 
 	}
 	public int getScoreForXofKind(int category){
