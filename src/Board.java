@@ -125,16 +125,16 @@ public class Board {
 	//    specialized....
 	public int getScoreForCategory(int category){
 		if(category <=5 && category>=0){
-			return(getScoreForUppers());
+			return(getScoreForUppers(category));
 		}
 		if(category== 6 || category==7){
-			return(getScoreForXofKind());
+			return(getScoreForXofKind(category));
 		}
 		if(category== 8){
 			return(getScoreForFullHouse());
 		}
 		if(category== 9 || category==10){
-			return (getScoreForStraights());
+			return (getScoreForStraights(category));
 		}
 		if(category== 11){
 			return(getScoreForYahtzee());
@@ -145,22 +145,66 @@ public class Board {
 		return -1;
 
 	}
-	public int getScoreForUppers(){
-
+	public int getScoreForUppers(int category){
+		return((category+1)*frequencyList[category+1]);
 	}
-	public int getScoreForStraights(){
+	public int getScoreForStraights(int category){
+
+		if (category==9){
+
+			for( int i = 1; i<= 3;i++){
+				boolean smStraight=true;
+				for (int j=0; j<=3;j++){
+					if (frequencyList[i+j]==0){
+						smStraight=false;
+						break;
+					}
+
+				}
+				if (smStraight){
+					return(30);
+				}
+			}
+			return(0);
+		}
+		if (category==10){
+			for( int i = 1; i<= 2;i++){
+				boolean lgStraight=true;
+				for (int j=0; j<=4;j++){
+					if (frequencyList[i+j]==0){
+						lgStraight=false;
+						break;
+					}
+
+				}
+				if (lgStraight){
+					return(40);
+				}
+			}
+			return(0);
+		}
+		return(-1);
 
 	}
 	public int getScoreForYahtzee(){
-
+		for(int frequency: frequencyList){
+			if (frequency==5){
+				return(50);
+			}
+		}
+		return(0);
 	}
 	public int getScoreForChance(){
-
+		int total = 0;
+		for(int die : myDice){
+			total+=die;
+		}
+		return(total);
 	}
 	public int getScoreForFullHouse(){
 
 	}
-	public int getScoreForXofKind(){
+	public int getScoreForXofKind(int category){
 
 	}
 
