@@ -48,7 +48,7 @@ public class ScoreCard {
 	private int lowerSectionTotal = -1;
 	private int grandTotal = -1;
 
-
+	private int[] myScores;
 
 	/**
 	 * constructor - set up an empty scorecard.
@@ -66,7 +66,28 @@ public class ScoreCard {
 		int myFoursCount = -1;
 		int myFivesCount = -1;
 		int mySixesCount = -1;
-		boolean upperSectionBonus = false;
+		int upperSectionBonusTotal = 0;
+		int [] upperSectionValues = new int[6];
+		upperSectionValues[0] = myAceCount;
+		upperSectionValues[1] = myTwosCount;
+		upperSectionValues[2] = myThreesCount;
+		upperSectionValues[3] = myFoursCount;
+		upperSectionValues[4] = myFivesCount;
+		upperSectionValues[5] = mySixesCount;
+
+		for (int i = 0; i <upperSectionValues.length; i++)
+		{
+			if (upperSectionValues[i] >= 0)
+			{
+				upperSectionTotal = upperSectionTotal + upperSectionValues[i];
+			}
+		}
+
+		if (upperSectionTotal >= 63)
+		{
+			upperSectionBonusTotal = 35;
+		}
+
 
 		int my3OfAKind = -1;
 		int my4OfAKind = -1;
@@ -75,11 +96,29 @@ public class ScoreCard {
 		int myLGStraight = -1;
 		int myYahtzee = -1;
 		int myChance = -1;
-		boolean yahtzeeBonusCheck = false;
+		int yahtzeeBonusTotal = 0;
 		int numOfYahtzeeBonuses = -1;
+		int [] lowerSectionValues = new int[7];
+		lowerSectionValues[0] = my3OfAKind;
+		lowerSectionValues[1] = my4OfAKind;
+		lowerSectionValues[2] = myFullHouse;
+		lowerSectionValues[3] = mySMStraight;
+		lowerSectionValues[4] = myLGStraight;
+		lowerSectionValues[5] = myYahtzee;
+		lowerSectionValues[6] = myChance;
+
+		for (int x = 0; x < lowerSectionValues.length; x++)
+		{
+			if (upperSectionValues[x] >= 0)
+			{
+				this.lowerSectionTotal = this.lowerSectionTotal + lowerSectionValues[x];
+			}
+		}
+
+
 
 		this.lowerSectionTotal = myAceCount + myTwosCount + myThreesCount + myFoursCount + myFivesCount + mySixesCount;
-
+		this.lowerSectionTotal
 
 		
 		//--------------------
