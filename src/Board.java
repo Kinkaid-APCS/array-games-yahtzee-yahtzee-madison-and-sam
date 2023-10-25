@@ -90,7 +90,7 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		for(int i=0; i<= myDice.length; i++){
+		for(int i=0; i< myDice.length; i++){
 			frequencyList[myDice[i]] ++;
 		}
 		// ---------------------------
@@ -136,16 +136,17 @@ public class Board {
 		if(category== 9 || category==10){
 			return (getScoreForStraights(category));
 		}
-		if(category== 11){
+		if(category== 12){
 			return(getScoreForYahtzee());
 		}
-		if(category== 12) {
+		if(category== 11) {
 			return (getScoreForChance());
 		}
 		return -1;
 
 	}
 	public int getScoreForUppers(int category){
+
 		return((category+1)*frequencyList[category+1]);
 	}
 	public int getScoreForStraights(int category){
@@ -241,12 +242,7 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = null; // I just put this in here to compile - you can replace it.
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
-		return result;
+		return frequencyList;
 	}
 
 	//----------------------------------- Debugging methods
@@ -266,17 +262,20 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		
+		myDice[0] = a;
+		myDice[1] = b;
+		myDice[2] = c;
+		myDice[3] = d;
+		myDice[4] = e;
+
+
+
 		// ---------------------------		
 	}
 	
 	public int[] debugGetDice()
 	{
-		int[] result = null; // temporary, so this compiles
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
-		return result;
+
+		return myDice;
 	}
 }
