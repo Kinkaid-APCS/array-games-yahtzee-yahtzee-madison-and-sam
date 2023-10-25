@@ -85,11 +85,16 @@ public class ScoreCard {
 	public boolean categoryIsEmpty(int category)
 	{
 		boolean empty = true;
+		boolean filled = false;
 		//--------------------
 		// TODO: insert your code here.
-		
-		//--------------------
-		return empty;
+
+        if (myScores[category] < 0) {
+            return empty;
+        }
+		else{
+			return filled;
+		}
 	}
 	
 	/**
