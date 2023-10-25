@@ -15,6 +15,7 @@ public class Referee {
 	private int currentPlayer = 0;
 
 	private Scanner myScanner;
+	private int turnCounter = 0;
 
 	
 	/**
@@ -25,7 +26,10 @@ public class Referee {
 		//--------------------
 		// TODO: insert your code here.
 		myScanner= new Scanner(System.in);
-		myScoreCards= {new ScoreCard(), new ScoreCard()};
+
+		myScoreCards= new ScoreCard[2];
+		myScoreCards[0]= new ScoreCard();
+		myScoreCards[1] = new ScoreCard();
 		//--------------------
 	}
 	
@@ -53,15 +57,12 @@ public class Referee {
 	/**
 	 * playGame - the main game loop for the Referee.
 	 */
-	public void playGame()
+	public void playGame(){
+		System.out.println("Welcome to Yahtzee");
+		playTurn();
+	}
+	public void playTurn()
 	{
-		System.out.println("Welcome to Yahtzee");// placeholder code.
-		//--------------------
-		// TODO: insert your code here.
-		// Note: I've added some methods to this class to get you
-		//      started, but I suspect you will need to make some
-		//      more of your own. Use this as a starting point.
-
 		rollAllDice();
 		int rolls_left = 2;
 		System.out.println("It is P"+ (currentPlayer+1)+ "'s turn");
@@ -86,15 +87,18 @@ public class Referee {
 						System.out.println("Which row would you like to fill, put a number 0-12");
 						int category = myScanner.nextInt();
 						if(!myScoreCards[currentPlayer].categoryIsEmpty(category)){
-
+							System.out.println("You got "+ theBoard.getScoreForCategory(category)+ " points");
+							myScoreCards[currentPlayer].setScoreForCategory(theBoard.getScoreForCategory(category),category);
+							categoryPicked=true;
 						} else if (myScoreCards[currentPlayer].categoryIsEmpty(category)) {
 							System.out.println("sorry that row is already filled");
 						}
 					}
+
 				}
 			}
 		}
-				
+
 		//--------------------
 	}
 
