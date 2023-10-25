@@ -42,10 +42,11 @@ public class ScoreCard {
 	public static final int YAHTZEE = 12;
 	
 	
-	// TODO: decide which private member variables ScoreCard should have and create them here.
+	// TODO: decide which private member variables ScoreCard should have and create them here. ******DONE*******
 
 	private int[] myScores;
-	private int myTotalScore = 0;
+	private boolean topBonus;
+
 
 	/**
 	 * constructor - set up an empty scorecard.
@@ -55,7 +56,7 @@ public class ScoreCard {
 	public ScoreCard()
 	{
 		//--------------------
-		// TODO: insert your code here.
+		// TODO: insert your code here. ******DONE*******
 
 		myScores = new int[13];
 		myScores[ONES] = -1; // settting the score for Ones
@@ -72,7 +73,12 @@ public class ScoreCard {
 		myScores[CHANCE] = -1; // setting the score for CHANCE
 		myScores[YAHTZEE] = -1; // setting the score for YAHTZEE
 
-		myTotalScore = 0;
+
+		topBonus = false;
+//		yahtzeeBonus = false;
+//		extraYahtzees = 0;
+
+
 		
 		//--------------------
 	}
@@ -87,7 +93,7 @@ public class ScoreCard {
 		boolean empty = true;
 		boolean filled = false;
 		//--------------------
-		// TODO: insert your code here.
+		// TODO: insert your code here. ******DONE*******
 
         if (myScores[category] < 0) {
             return empty;
@@ -105,8 +111,10 @@ public class ScoreCard {
 	public void setScoreForCategory(int score, int category)
 	{
 		//--------------------
-		// TODO: insert your code here.
-		
+		// TODO: insert your code here. ******DONE*******
+
+		myScores[category] = score;
+
 		//--------------------
 	}
 	
@@ -117,12 +125,11 @@ public class ScoreCard {
 	 */
 	public int getScoreForCategory(int category)
 	{
-		int response = -1;
 		//--------------------
-		// TODO: insert your code here.
-		
-		//--------------------
-		return response;
+		// TODO: insert your code here. ******DONE*******
+		return myScores[category];
+
+
 	}
 	/**
 	 * accessor for the subtotal of all the numbered fields (without the bonus).
@@ -133,7 +140,16 @@ public class ScoreCard {
 	{
 		int subtotal = 0;
 		//--------------------
-		// TODO: insert your code here.
+		// TODO: insert your code here. ******DONE*******
+
+		for (int i = myScores[ONES]; i < myScores[THREE_OF_A_KIND]; i++){
+			if (myScores[i] < 0){
+				subtotal = subtotal + 0;
+			}
+			else{
+				subtotal = subtotal + myScores[i];
+			}
+		}
 		
 		//--------------------
 		return subtotal;
@@ -147,8 +163,16 @@ public class ScoreCard {
 	{
 		int subtotal = 0;
 		//--------------------
-		// TODO: insert your code here.
-		
+		// TODO: insert your code here. ******DONE*******
+		for (int i = myScores[THREE_OF_A_KIND]; i < (myScores.length + 1); i++){
+			if (myScores[i] < 0){
+				subtotal = subtotal + 0;
+			}
+			else{
+				subtotal = subtotal + myScores[i];
+			}
+		}
+
 		//--------------------
 		return subtotal;		
 	}
@@ -158,19 +182,58 @@ public class ScoreCard {
 	 */
 	public int getTopBonus()
 	{
-		int bonus = 0;
+		int bonus = 35;
+		int noBonus = 0;
 		//--------------------
-		// TODO: insert your code here.
+		// TODO: insert your code here. ******DONE*******
+
+		if (this.getTopSubtotal() >= 63){
+			topBonus = true;
+			return bonus;
+		}
+		else{
+			topBonus = false;
+			return noBonus;
+		}
 		
 		//--------------------
-		return bonus;
 	}
+
+//	/**
+//	 * Checks to see if the extra Yahtzee points are able to start adding up/ you got two or more extra Yhatzees.  the bonus found by extra Yahtzees calculated at the end of the section.
+//	 *
+//	 * @return the total number of points when roll extra Yahtzee afetr the innitail Yhatzee.
+//	 */
+//	public boolean checkYahtzeeBonus()
+//	{
+//
+//			return true;
+//		}
+//
+//
+//
+//
+//
+//
+//		//--------------------
+//	}
 	
 	public int getTotal()
 	{
 		int total = 0;
 		//--------------------
-		// TODO: insert your code here.
+		// TODO: insert your code here. ******DONE*******
+		for (int i = myScores[ONES]; i < (myScores.length + 1); i++){
+			if (myScores[i] < 0){
+				total = total + 0;
+			}
+			else{
+				total = total + myScores[i];
+			}
+		}
+		if (topBonus == true){
+			total = total + 35;
+		}
 		
 		//--------------------
 		return total;
