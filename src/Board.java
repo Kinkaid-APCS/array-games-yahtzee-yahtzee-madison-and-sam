@@ -15,8 +15,8 @@ public class Board {
 
 	// TODO: decide which private member variables Board needs and declare them here. 
 	//          HINT: See the note above!
-	private int[] frequencyList = new int[7];
-	private int[] myDice = new int[5];
+	private int[] frequencyList;
+	private int[] myDice;
 	private Referee myRef;
 
 	
@@ -25,7 +25,8 @@ public class Board {
 	 */
 	// TODO: write the Board's constructor
 	Board(){
-
+		frequencyList = new int[7];
+		myDice = new int[5];
 	}
 	
 	/**
