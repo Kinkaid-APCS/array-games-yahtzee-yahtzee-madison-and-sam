@@ -202,10 +202,37 @@ public class Board {
 		return(total);
 	}
 	public int getScoreForFullHouse(){
-
+		boolean twoOfKind = false;
+		boolean threeOfKind= false;
+		for(int frequency: frequencyList){
+			if(frequency == 2){
+				twoOfKind = true;
+			}
+			if (frequency==3){
+				threeOfKind=true;
+			}
+		}
+		if(twoOfKind&&threeOfKind){
+			return(25);
+		}
+		return (0);
 	}
 	public int getScoreForXofKind(int category){
-
+		if(category==6) {
+			for (int i = 1; i <= frequencyList.length; i++) {
+				if (frequencyList[i]==3){
+					return(3*myDice[i-1]);
+				}
+			}
+		}
+		if(category==7) {
+			for (int i = 1; i <= frequencyList.length; i++) {
+				if (frequencyList[i]==4){
+					return(4*myDice[i-1]);
+				}
+			}
+		}
+		return(0);
 	}
 
 	/**
