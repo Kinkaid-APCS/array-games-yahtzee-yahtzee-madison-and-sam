@@ -44,11 +44,8 @@ public class ScoreCard {
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
 
-	private int upperSectionTotal = -1;
-	private int lowerSectionTotal = -1;
-	private int grandTotal = -1;
-
 	private int[] myScores;
+	private int myTotalScore = 0;
 
 	/**
 	 * constructor - set up an empty scorecard.
@@ -60,66 +57,22 @@ public class ScoreCard {
 		//--------------------
 		// TODO: insert your code here.
 
-		int myAceCount = -1;
-		int myTwosCount = -1;
-		int myThreesCount = -1;
-		int myFoursCount = -1;
-		int myFivesCount = -1;
-		int mySixesCount = -1;
-		int upperSectionBonusTotal = 0;
-		int [] upperSectionValues = new int[6];
-		upperSectionValues[0] = myAceCount;
-		upperSectionValues[1] = myTwosCount;
-		upperSectionValues[2] = myThreesCount;
-		upperSectionValues[3] = myFoursCount;
-		upperSectionValues[4] = myFivesCount;
-		upperSectionValues[5] = mySixesCount;
+		myScores = new int[13];
+		myScores[ONES] = -1; // settting the score for Ones
+		myScores[TWOS] = -1; // setting the score for TWOS
+		myScores[THREES] = -1; // setting the score for THREES
+		myScores[FOURS] = -1; // setting the score for FOURS
+		myScores[FIVES] = -1; // setting the score for FIVES
+		myScores[SIXES] = -1; // setting the score for SIXES
+		myScores[THREE_OF_A_KIND] = -1; // setting the score for THREE_OF_A_KIND
+		myScores[FOUR_OF_A_KIND] = -1; // setting the score for FOUR_OF_A_KIND
+		myScores[FULL_HOUSE] = -1; // setting the score for FULL_HOUSE
+		myScores[SMALL_STRAIGHT] = -1; // setting the score for SMALL_STRAIGHT
+		myScores[LARGE_STRAIGHT] = -1; // setting the score for LARGE_STRAIGHT
+		myScores[CHANCE] = -1; // setting the score for CHANCE
+		myScores[YAHTZEE] = -1; // setting the score for YAHTZEE
 
-		for (int i = 0; i <upperSectionValues.length; i++)
-		{
-			if (upperSectionValues[i] >= 0)
-			{
-				upperSectionTotal = upperSectionTotal + upperSectionValues[i];
-			}
-		}
-
-		if (upperSectionTotal >= 63)
-		{
-			upperSectionBonusTotal = 35;
-		}
-
-
-		int my3OfAKind = -1;
-		int my4OfAKind = -1;
-		int myFullHouse = -1;
-		int mySMStraight = -1;
-		int myLGStraight = -1;
-		int myYahtzee = -1;
-		int myChance = -1;
-		int yahtzeeBonusTotal = 0;
-		int numOfYahtzeeBonuses = -1;
-		int [] lowerSectionValues = new int[7];
-		lowerSectionValues[0] = my3OfAKind;
-		lowerSectionValues[1] = my4OfAKind;
-		lowerSectionValues[2] = myFullHouse;
-		lowerSectionValues[3] = mySMStraight;
-		lowerSectionValues[4] = myLGStraight;
-		lowerSectionValues[5] = myYahtzee;
-		lowerSectionValues[6] = myChance;
-
-		for (int x = 0; x < lowerSectionValues.length; x++)
-		{
-			if (upperSectionValues[x] >= 0)
-			{
-				this.lowerSectionTotal = this.lowerSectionTotal + lowerSectionValues[x];
-			}
-		}
-
-
-
-		this.lowerSectionTotal = myAceCount + myTwosCount + myThreesCount + myFoursCount + myFivesCount + mySixesCount;
-		this.lowerSectionTotal
-
+		myTotalScore = 0;
 		
 		//--------------------
 	}
