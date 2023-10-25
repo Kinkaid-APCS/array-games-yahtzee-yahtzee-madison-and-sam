@@ -15,8 +15,8 @@ public class Board {
 
 	// TODO: decide which private member variables Board needs and declare them here. 
 	//          HINT: See the note above!
-	private int[] frequencyList = new int[7];
-	private int[] myDice = new int[5];
+	private int[] frequencyList;
+	private int[] myDice;
 	private Referee myRef;
 
 	
@@ -25,7 +25,8 @@ public class Board {
 	 */
 	// TODO: write the Board's constructor
 	Board(){
-
+		frequencyList = new int[7];
+		myDice = new int[5];
 	}
 	
 	/**
@@ -90,7 +91,7 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		for(int i=0; i<= myDice.length; i++){
+		for(int i=0; i< myDice.length; i++){
 			frequencyList[myDice[i]] ++;
 		}
 		// ---------------------------
@@ -136,16 +137,17 @@ public class Board {
 		if(category== 9 || category==10){
 			return (getScoreForStraights(category));
 		}
-		if(category== 11){
+		if(category== 12){
 			return(getScoreForYahtzee());
 		}
-		if(category== 12) {
+		if(category== 11) {
 			return (getScoreForChance());
 		}
 		return -1;
 
 	}
 	public int getScoreForUppers(int category){
+
 		return((category+1)*frequencyList[category+1]);
 	}
 	public int getScoreForStraights(int category){
@@ -159,7 +161,6 @@ public class Board {
 						smStraight=false;
 						break;
 					}
-
 				}
 				if (smStraight){
 					return(30);
@@ -202,10 +203,37 @@ public class Board {
 		return(total);
 	}
 	public int getScoreForFullHouse(){
-
+		boolean twoOfKind = false;
+		boolean threeOfKind= false;
+		for(int frequency: frequencyList){
+			if(frequency == 2){
+				twoOfKind = true;
+			}
+			if (frequency==3){
+				threeOfKind=true;
+			}
+		}
+		if(twoOfKind&&threeOfKind){
+			return(25);
+		}
+		return (0);
 	}
 	public int getScoreForXofKind(int category){
-
+		if(category==6) {
+			for (int i = 1; i < frequencyList.length; i++) {
+				if (frequencyList[i]>=3){
+					return(3*i);
+				}
+			}
+		}
+		if(category==7) {
+			for (int i = 1; i < frequencyList.length; i++) {
+				if (frequencyList[i]>=4){
+					return(4*i);
+				}
+			}
+		}
+		return(0);
 	}
 
 	/**
@@ -214,12 +242,7 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = null; // I just put this in here to compile - you can replace it.
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
-		return result;
+		return frequencyList;
 	}
 
 	//----------------------------------- Debugging methods
@@ -239,17 +262,20 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		
+		myDice[0] = a;
+		myDice[1] = b;
+		myDice[2] = c;
+		myDice[3] = d;
+		myDice[4] = e;
+
+
+
 		// ---------------------------		
 	}
 	
 	public int[] debugGetDice()
 	{
-		int[] result = null; // temporary, so this compiles
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
-		return result;
+
+		return myDice;
 	}
 }
