@@ -160,7 +160,6 @@ public class Board {
 						smStraight=false;
 						break;
 					}
-
 				}
 				if (smStraight){
 					return(30);
@@ -220,16 +219,16 @@ public class Board {
 	}
 	public int getScoreForXofKind(int category){
 		if(category==6) {
-			for (int i = 1; i <= frequencyList.length; i++) {
-				if (frequencyList[i]==3){
-					return(3*myDice[i-1]);
+			for (int i = 1; i < frequencyList.length; i++) {
+				if (frequencyList[i]>=3){
+					return(3*i);
 				}
 			}
 		}
 		if(category==7) {
-			for (int i = 1; i <= frequencyList.length; i++) {
-				if (frequencyList[i]==4){
-					return(4*myDice[i-1]);
+			for (int i = 1; i < frequencyList.length; i++) {
+				if (frequencyList[i]>=4){
+					return(4*i);
 				}
 			}
 		}

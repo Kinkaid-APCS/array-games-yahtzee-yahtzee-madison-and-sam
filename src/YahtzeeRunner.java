@@ -11,9 +11,9 @@ public class YahtzeeRunner {
 		{
 			System.out.println("Start tests");
 			// enter test code here.
-			myBoard.debugSetDice(4,4,3,3,3);
+			myBoard.debugSetDice(6,6,6,6,6);
 			myBoard.updateFrequencyList();
-			System.out.println(myBoard.getScoreForCategory(3));
+			System.out.println(myBoard.getScoreForCategory(12));
 			System.out.println("End tests");
 		}
 		else
