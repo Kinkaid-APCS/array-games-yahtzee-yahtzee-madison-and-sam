@@ -59,10 +59,36 @@ public class Referee {
 	 */
 	public void playGame(){
 		System.out.println("Welcome to Yahtzee");
-		playTurn();
+		while (turnCounter<26){
+			playTurn();
+			turnCounter++;
+			if (currentPlayer==0){
+				currentPlayer=1;
+			} else if (currentPlayer==1){
+				currentPlayer=0;
+			}
+		}
+		int player1Score = myScoreCards[0].getTotal();
+		int player2Score= myScoreCards[1].getTotal();
+		System.out.println("That was the end of the game!");
+		System.out.println("Player 1 had a score of "+ player1Score );
+		System.out.println("Player 2 had a score of "+ player2Score );
+		if (player1Score>player2Score){
+			System.out.println("Player 1 wins!!!");
+		}
+		if (player2Score>player1Score){
+			System.out.println("Player 2 wins!!!");
+		}
+		if (player1Score== player2Score){
+			System.out.println(("it's a tie"));
+		}
+
+
+
+
 	}
 	public void playTurn()
-	{
+	{ 
 		rollAllDice();
 		int rolls_left = 2;
 		System.out.println("It is P"+ (currentPlayer+1)+ "'s turn");
@@ -81,25 +107,31 @@ public class Referee {
 
 				}
 				if (player_choice == 2) {
-					boolean categoryPicked= false;
-					while(!categoryPicked){
-						System.out.println("Here is your scorecard: "+ myScoreCards[currentPlayer].toString());
-						System.out.println("Which row would you like to fill, put a number 0-12");
-						int category = myScanner.nextInt();
-						if(!myScoreCards[currentPlayer].categoryIsEmpty(category)){
-							System.out.println("You got "+ theBoard.getScoreForCategory(category)+ " points");
-							myScoreCards[currentPlayer].setScoreForCategory(theBoard.getScoreForCategory(category),category);
-							categoryPicked=true;
-						} else if (myScoreCards[currentPlayer].categoryIsEmpty(category)) {
-							System.out.println("sorry that row is already filled");
-						}
-					}
-
+					playerScore();
 				}
+			}
+			if(rolls_left==0){
+				System.out.println("That was your last roll");
+				playerScore();
 			}
 		}
 
 		//--------------------
+	}
+	public void playerScore(){
+		boolean categoryPicked= false;
+		while(!categoryPicked){
+			System.out.println("Here is your scorecard: "+ myScoreCards[currentPlayer].toString());
+			System.out.println("Which row would you like to fill, put a number 0-12");
+			int category = myScanner.nextInt();
+			if(!myScoreCards[currentPlayer].categoryIsEmpty(category)){
+				System.out.println("You got "+ theBoard.getScoreForCategory(category)+ " points");
+				myScoreCards[currentPlayer].setScoreForCategory(theBoard.getScoreForCategory(category),category);
+				categoryPicked=true;
+			} else if (myScoreCards[currentPlayer].categoryIsEmpty(category)) {
+				System.out.println("sorry that row is already filled");
+			}
+		}
 	}
 
 	/**
