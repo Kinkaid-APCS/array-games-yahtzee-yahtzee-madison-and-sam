@@ -136,16 +136,18 @@ public class Referee {
 		int rolls_left = 2;
 		System.out.println("It is P"+ (currentPlayer+1)+ "'s turn");
 		while (rolls_left>=0) {
-
+			System.out.println(rolls_left);
 			displayBoardAndDice();
 			rolls_left--;
 			if (rolls_left>0) {
 				System.out.println("These are your dice, type 1 if you would like to reroll " +
 						"some dice and type 2 if you would like to score your dice");
 				int player_choice = myScanner.nextInt();
+				System.out.println(player_choice);
 				if (player_choice == 1) {
 					System.out.println("Which dice would you like to reroll, " +
 							"please put all of the letters you would like to reroll with no commas or spaces");
+					myScanner.nextLine();
 					rollDice(myScanner.nextLine());
 
 				}
