@@ -7,7 +7,7 @@ public class YahtzeeRunner {
 	public static void main(String[] args) {
 		Board myBoard = new Board();
 		Referee myRef = new Referee();
-		boolean testingMode = true;
+		boolean testingMode = false;
 		if (testingMode)
 		{
 			System.out.println("Start tests");

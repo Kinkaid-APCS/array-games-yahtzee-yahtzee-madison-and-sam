@@ -45,7 +45,7 @@ public class Referee {
 	
 	/**
 	 * roll some dice, as indicated
-	 * @param diceToRoll - a string that indicates which dice to roll. For instance,
+	 *  - a string that indicates which dice to roll. For instance,
 	 * "ADE" would mean to roll die A, die D and die E, without changing die B or 
 	 * die C.
 	 */
@@ -81,6 +81,18 @@ public class Referee {
 	public void rollDice(String die){
 		if(die.equals("A")){
 			theBoard.setDieAtIndex(0, (int)(Math.random()*6+1));
+		}
+		if(die.equals("B")){
+			theBoard.setDieAtIndex(1, (int)(Math.random()*6+1));
+		}
+		if(die.equals("C")){
+			theBoard.setDieAtIndex(2, (int)(Math.random()*6+1));
+		}
+		if(die.equals("D")){
+			theBoard.setDieAtIndex(3, (int)(Math.random()*6+1));
+		}
+		if(die.equals("E")){
+			theBoard.setDieAtIndex(4, (int)(Math.random()*6+1));
 		}
 
 	}
@@ -174,8 +186,8 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		rollAllDice();
-		System.out.println("+---+ +---+ +---+ +---+ +---+\n" +"| "+theBoard.getDieAtIndex(0)+ "| |" + theBoard.getDieAtIndex(1)+ " | | " + theBoard.getDieAtIndex(2)+ "| |" + theBoard.getDieAtIndex(3)+ " | | " + theBoard.getDieAtIndex(4)+ " |\n +---+ +---+ +---+ +---+ +---+");
+		System.out.println("+---+ +---+ +---+ +---+ +---+\n" +"| "+theBoard.getDieAtIndex(0)+ " | | " + theBoard.getDieAtIndex(1)+ " | | " + theBoard.getDieAtIndex(2)+ " | | " + theBoard.getDieAtIndex(3)+ " | | " + theBoard.getDieAtIndex(4)+ " |\n+---+ +---+ +---+ +---+ +---+");
+		System.out.println("  A     B     C     D     E  ");
 		//--------------------
 	}
 	
