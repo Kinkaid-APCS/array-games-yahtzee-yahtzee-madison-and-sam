@@ -257,8 +257,25 @@ public class ScoreCard {
 	public String toString()
 	{
 		String result = "";
+		int currentTotal = 0;
 		//--------------------
 		// TODO: insert your code here.
+
+		for (int x = 0; x < (myScores.length +1);x++)
+		{
+			if (myScores[x] < 0)
+			{
+				result = result + categories[0] + "\t" + "-" + "\n";
+			}
+			else{
+				result = result + categories[0] + "\t" + myScores[x] + "\n";
+				currentTotal = currentTotal + myScores[x];
+			}
+		}
+		if (topBonus == true){
+			currentTotal = currentTotal + 35;
+		}
+		result = result + "TOTAL      " + "\t" + currentTotal + "\n";
 		
 		//--------------------
 		return result;
