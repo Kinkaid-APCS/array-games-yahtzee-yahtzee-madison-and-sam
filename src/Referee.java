@@ -30,6 +30,7 @@ public class Referee {
 		myScoreCards= new ScoreCard[2];
 		myScoreCards[0]= new ScoreCard();
 		myScoreCards[1] = new ScoreCard();
+		theBoard = new Board();
 		//--------------------
 	}
 	
@@ -39,7 +40,7 @@ public class Referee {
 	public void rollAllDice()
 	{
 		// I've written this one for you. ;^)
-		rollDice("ABCDE");
+		rollSelectedDice("ABCDE");
 	}
 	
 	/**
@@ -48,10 +49,40 @@ public class Referee {
 	 * "ADE" would mean to roll die A, die D and die E, without changing die B or 
 	 * die C.
 	 */
-	public void rollDice(String diceToRoll)
+	public void rollSelectedDice(String stringToParse)
 	{
-		// I've written this one for you, too.
-		theBoard.rollSelectedDice(diceToRoll);
+		// I'm starting this one for you, since we haven't been splitting strings yet.
+		for (int i=0; i<stringToParse.length(); i++) // loop one letter at a time....
+		{
+			String letter = stringToParse.substring(i, i+1);
+			// so now "letter" is one of the letters in the string.
+			// TODO: write code here to look at "letter" and based on it,
+			//       decide whether to re-roll one of the dice.
+			if(letter.equals("A")){
+				rollDice("A");
+			}
+			if(letter.equals("B")){
+				rollDice("B");
+			}
+			if(letter.equals("C")){
+				rollDice("C");
+			}
+			if(letter.equals("D")){
+				rollDice("D");
+			}
+			if(letter.equals("E")){
+				rollDice("E");
+			}
+
+
+		}
+
+	}
+	public void rollDice(String die){
+		if(die.equals("A")){
+			theBoard.setDieAtIndex(0, (int)(Math.random()*6+1));
+		}
+
 	}
 	
 	/**
@@ -143,7 +174,8 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+		rollAllDice();
+		System.out.println("+---+ +---+ +---+ +---+ +---+\n" +"| "+theBoard.getDieAtIndex(0)+ "| |" + theBoard.getDieAtIndex(1)+ " | | " + theBoard.getDieAtIndex(2)+ "| |" + theBoard.getDieAtIndex(3)+ " | | " + theBoard.getDieAtIndex(4)+ " |\n +---+ +---+ +---+ +---+ +---+");
 		//--------------------
 	}
 	

@@ -6,6 +6,7 @@ public class YahtzeeRunner {
 
 	public static void main(String[] args) {
 		Board myBoard = new Board();
+		Referee myRef = new Referee();
 		boolean testingMode = true;
 		if (testingMode)
 		{
@@ -15,6 +16,8 @@ public class YahtzeeRunner {
 			myBoard.updateFrequencyList();
 			System.out.println(myBoard.getScoreForCategory(12));
 			System.out.println("End tests");
+			myRef.displayBoardAndDice();
+
 		}
 		else
 		{

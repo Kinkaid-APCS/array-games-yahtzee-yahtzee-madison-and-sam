@@ -17,7 +17,7 @@ public class Board {
 	//          HINT: See the note above!
 	private int[] frequencyList;
 	private int[] myDice;
-	private Referee myRef;
+
 
 	
 	/**
@@ -51,35 +51,6 @@ public class Board {
 	 * @param - a string to parse. (e.g., "CE")
 	 * no return value - only internal variables are changed.
 	 */
-	public void rollSelectedDice(String stringToParse)
-	{
-		// I'm starting this one for you, since we haven't been splitting strings yet.
-		for (int i=0; i<stringToParse.length(); i++) // loop one letter at a time....
-		{
-			String letter = stringToParse.substring(i, i+1);
-			// so now "letter" is one of the letters in the string.
-			// TODO: write code here to look at "letter" and based on it, 
-			//       decide whether to re-roll one of the dice.
-			if(letter.equals("A")){
-				myRef.rollDice("A");
-			}
-			if(letter.equals("B")){
-				myRef.rollDice("B");
-			}
-			if(letter.equals("C")){
-				myRef.rollDice("C");
-			}
-			if(letter.equals("D")){
-				myRef.rollDice("D");
-			}
-			if(letter.equals("E")){
-				myRef.rollDice("E");
-			}
-
-
-		}
-	
-	}
 	
 	/**
 	 * recalculates the frequency list - how many 1s are showing on the dice? 
@@ -278,4 +249,13 @@ public class Board {
 
 		return myDice;
 	}
+	public int getDieAtIndex(int index){
+
+		return myDice[index];
+	}
+	public void setDieAtIndex(int index, int new_value){
+
+		myDice[index] = new_value;
+	}
 }
+
