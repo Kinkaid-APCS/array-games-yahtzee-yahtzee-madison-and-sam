@@ -164,7 +164,7 @@ public class ScoreCard {
 		int subtotal = 0;
 		//--------------------
 		// TODO: insert your code here. ******DONE*******
-		for (int i = myScores[THREE_OF_A_KIND]; i < (myScores.length + 1); i++){
+		for (int i = myScores[THREE_OF_A_KIND]; i < (myScores.length -1); i++){
 			if (myScores[i] < 0){
 				subtotal = subtotal + 0;
 			}
@@ -223,7 +223,7 @@ public class ScoreCard {
 		int total = 0;
 		//--------------------
 		// TODO: insert your code here. ******DONE*******
-		for (int i = myScores[ONES]; i < (myScores.length + 1); i++){
+		for (int i = myScores[ONES]; i < (myScores.length -1); i++){
 			if (myScores[i] < 0){
 				total = total + 0;
 			}
@@ -261,7 +261,7 @@ public class ScoreCard {
 		//--------------------
 		// TODO: insert your code here.
 
-		for (int x = 0; x < (myScores.length +1);x++)
+		for (int x = 0; x < (myScores.length -1);x++)
 		{
 			if (myScores[x] < 0)
 			{

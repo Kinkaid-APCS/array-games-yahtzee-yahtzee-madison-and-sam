@@ -15,6 +15,7 @@ public class YahtzeeRunner {
 			myBoard.debugSetDice(6,6,6,6,6);
 			myBoard.updateFrequencyList();
 			System.out.println(myBoard.getScoreForCategory(12));
+
 			System.out.println("End tests");
 			myRef.displayBoardAndDice();
 
