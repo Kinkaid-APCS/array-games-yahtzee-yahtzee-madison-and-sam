@@ -138,7 +138,7 @@ public class Referee {
 		while (rolls_left>=0) {
 			System.out.println(rolls_left);
 			displayBoardAndDice();
-			rolls_left--;
+
 			if (rolls_left>0) {
 				System.out.println("These are your dice, type 1 if you would like to reroll " +
 						"some dice and type 2 if you would like to score your dice");
@@ -148,7 +148,8 @@ public class Referee {
 					System.out.println("Which dice would you like to reroll, " +
 							"please put all of the letters you would like to reroll with no commas or spaces");
 					myScanner.nextLine();
-					rollDice(myScanner.nextLine());
+					rollSelectedDice(myScanner.nextLine());
+					rolls_left--;
 
 				}
 				if (player_choice == 2) {
@@ -166,6 +167,8 @@ public class Referee {
 	public void playerScore(){
 		boolean categoryPicked= false;
 		while(!categoryPicked){
+			System.out.println("Here are your dice: ");
+			displayBoardAndDice();
 			System.out.println("Here is your scorecard: "+ myScoreCards[currentPlayer].toString());
 			System.out.println("Which row would you like to fill, put a number 0-12");
 			int category = myScanner.nextInt();
