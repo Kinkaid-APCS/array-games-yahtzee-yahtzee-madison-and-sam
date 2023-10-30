@@ -44,7 +44,7 @@ public class ScoreCard {
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here. ******DONE*******
 
-	private int[] myScores;
+	private final int[] myScores;
 	private boolean topBonus;
 
 
@@ -144,7 +144,7 @@ public class ScoreCard {
 
 		for (int i = myScores[ONES]; i < myScores[THREE_OF_A_KIND]; i++){
 			if (myScores[i] < 0){
-				subtotal = subtotal + 0;
+				subtotal = subtotal;
 			}
 			else{
 				subtotal = subtotal + myScores[i];
@@ -166,7 +166,7 @@ public class ScoreCard {
 		// TODO: insert your code here. ******DONE*******
 		for (int i = myScores[THREE_OF_A_KIND]; i < (myScores.length -1); i++){
 			if (myScores[i] < 0){
-				subtotal = subtotal + 0;
+				subtotal = subtotal;
 			}
 			else{
 				subtotal = subtotal + myScores[i];
@@ -225,13 +225,13 @@ public class ScoreCard {
 		// TODO: insert your code here. ******DONE*******
 		for (int i = myScores[ONES]; i < (myScores.length -1); i++){
 			if (myScores[i] < 0){
-				total = total + 0;
+				total = total;
 			}
 			else{
 				total = total + myScores[i];
 			}
 		}
-		if (topBonus == true){
+		if (topBonus){
 			total = total + 35;
 		}
 		
@@ -261,21 +261,24 @@ public class ScoreCard {
 		//--------------------
 		// TODO: insert your code here.
 
-		for (int x = 0; x < (myScores.length -1);x++)
+		for (int x = 0; x < (myScores.length); x = x + 1)
 		{
 			if (myScores[x] < 0)
 			{
-				result = result + categories[0] + "\t" + "-" + "\n";
+				result = result + categories[x] + "\t" + "-" + "\n";
 			}
 			else{
-				result = result + categories[0] + "\t" + myScores[x] + "\n";
+				result = result + categories[x] + "\t" + myScores[x] + "\n";
 				currentTotal = currentTotal + myScores[x];
 			}
 		}
-		if (topBonus == true){
+		if (topBonus){
 			currentTotal = currentTotal + 35;
 		}
 		result = result + "TOTAL      " + "\t" + currentTotal + "\n";
+
+
+
 		
 		//--------------------
 		return result;
