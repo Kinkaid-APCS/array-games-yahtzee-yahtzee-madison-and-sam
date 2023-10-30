@@ -172,11 +172,12 @@ public class Referee {
 			System.out.println("Here is your scorecard: "+ myScoreCards[currentPlayer].toString());
 			System.out.println("Which row would you like to fill, put a number 0-12");
 			int category = myScanner.nextInt();
-			if(!myScoreCards[currentPlayer].categoryIsEmpty(category)){
+			if(myScoreCards[currentPlayer].categoryIsEmpty(category)){
+				System.out.println("IT WORKED");
 				System.out.println("You got "+ theBoard.getScoreForCategory(category)+ " points");
 				myScoreCards[currentPlayer].setScoreForCategory(theBoard.getScoreForCategory(category),category);
 				categoryPicked=true;
-			} else if (myScoreCards[currentPlayer].categoryIsEmpty(category)) {
+			} else if (!myScoreCards[currentPlayer].categoryIsEmpty(category)) {
 				System.out.println("sorry that row is already filled");
 			}
 		}
