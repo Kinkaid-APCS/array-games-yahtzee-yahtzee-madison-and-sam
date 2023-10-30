@@ -94,7 +94,7 @@ public class Referee {
 		if(die.equals("E")){
 			theBoard.setDieAtIndex(4, (int)(Math.random()*6+1));
 		}
-
+		theBoard.updateFrequencyList();
 	}
 	
 	/**
