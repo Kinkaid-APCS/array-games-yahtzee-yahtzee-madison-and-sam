@@ -256,7 +256,7 @@ public class ScoreCard {
 	 */
 	public String toString()
 	{
-		String result = "";
+		String result = " " + "\n";
 		int currentTotal = 0;
 		//--------------------
 		// TODO: insert your code here.

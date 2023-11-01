@@ -102,6 +102,7 @@ public class Referee {
 	 */
 	public void playGame(){
 		System.out.println("Welcome to Yahtzee");
+		System.out.println("Here are some rules and explinations:" +"\n"+ " - You are only allowed to re-roll a dice turn 2 times" +"\n"+ " - The goal is to get the most amount of points" );
 		while (turnCounter<26){
 			playTurn();
 			turnCounter++;
