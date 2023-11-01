@@ -62,6 +62,7 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
+		frequencyList= new int[7];
 		for(int i=0; i< myDice.length; i++){
 			frequencyList[myDice[i]] ++;
 		}
