@@ -119,7 +119,7 @@ public class Board {
 
 	}
 	public int getScoreForUppers(int category){
-		System.out.println(frequencyList[category+1]);
+
 		return((category+1)*frequencyList[category+1]);
 	}
 	public int getScoreForStraights(int category){
