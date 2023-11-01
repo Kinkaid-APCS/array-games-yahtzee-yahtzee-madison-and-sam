@@ -101,6 +101,8 @@ public class Referee {
 	 * playGame - the main game loop for the Referee.
 	 */
 	public void playGame(){
+		System.out.println("Welcome to Yahtzee");
+		System.out.println("Here are some rules and explinations:" +"\n"+ " - You are only allowed to re-roll a dice turn 2 times" +"\n"+ " - The goal is to get the most amount of points" );
 		while (turnCounter<26){
 			playTurn();
 			turnCounter++;
@@ -133,7 +135,7 @@ public class Referee {
 	{ 
 		rollAllDice();
 		int rolls_left = 2;
-		System.out.println("It is P"+ (currentPlayer+1)+ "'s turn");
+		System.out.println("It is Player "+ (currentPlayer+1)+ "'s turn");
 		while (rolls_left>=0) {
 
 			displayBoardAndDice();
@@ -150,6 +152,7 @@ public class Referee {
 					myScanner.nextLine();
 					rollSelectedDice(myScanner.nextLine());
 					rolls_left--;
+
 				}
 				if (player_choice == 2) {
 					playerScore();
