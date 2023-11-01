@@ -114,29 +114,13 @@ public class Referee {
 				System.out.println("Sorry, that is not a number, please try agin.");
 				myScanner.nextLine();
 			}
+
 		}
+		myScanner.nextLine();
 		return x;
 	}
 
-	public String askForLetter()
-	{
-		String x = "";
-		boolean goodAnswer = false;
-		while (!goodAnswer)
-		{
-			try
-			{
-				x = myScanner.nextLine();
-				goodAnswer = true;
-			}
-			catch (InputMismatchException imExp)
-			{
-				System.out.println("Sorry, that is not a number, please try agin.");
-				myScanner.nextLine();
-			}
-		}
-		return x;
-	}
+
 	
 	/**
 	 * playGame - the main game loop for the Referee.
@@ -190,7 +174,7 @@ public class Referee {
 				if (player_choice == 1) {
 					System.out.println("Which dice would you like to reroll, " +
 							"please put all of the letters you would like to reroll with no commas or spaces");
-					String myLetters = askForLetter();
+					String myLetters = myScanner.nextLine();
 					rollSelectedDice(myLetters);
 					rolls_left--;
 
