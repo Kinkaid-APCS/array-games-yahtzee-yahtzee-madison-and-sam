@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * The Referee class is in charge of keeping track of the Board (the dice)
@@ -96,6 +97,46 @@ public class Referee {
 		}
 		theBoard.updateFrequencyList();
 	}
+
+	public int askForNumber()
+	{
+		int x = -1;
+		boolean goodAnswer = false;
+		while (!goodAnswer)
+		{
+			try
+			{
+				x = myScanner.nextInt();
+				goodAnswer = true;
+			}
+			catch (InputMismatchException imExp)
+			{
+				System.out.println("Sorry, that is not a number, please try agin.");
+				myScanner.nextLine();
+			}
+		}
+		return x;
+	}
+
+	public String askForLetter()
+	{
+		String x = "";
+		boolean goodAnswer = false;
+		while (!goodAnswer)
+		{
+			try
+			{
+				x = myScanner.nextLine();
+				goodAnswer = true;
+			}
+			catch (InputMismatchException imExp)
+			{
+				System.out.println("Sorry, that is not a number, please try agin.");
+				myScanner.nextLine();
+			}
+		}
+		return x;
+	}
 	
 	/**
 	 * playGame - the main game loop for the Referee.
@@ -144,13 +185,13 @@ public class Referee {
 			if (rolls_left>0) {
 				System.out.println("These are your dice, type 1 if you would like to reroll " +
 						"some dice and type 2 if you would like to score your dice");
-				int player_choice = myScanner.nextInt();
+				int player_choice = askForNumber();
 				//System.out.println(player_choice);
 				if (player_choice == 1) {
 					System.out.println("Which dice would you like to reroll, " +
 							"please put all of the letters you would like to reroll with no commas or spaces");
-					myScanner.nextLine();
-					rollSelectedDice(myScanner.nextLine());
+					String myLetters = askForLetter();
+					rollSelectedDice(myLetters);
 					rolls_left--;
 
 				}
