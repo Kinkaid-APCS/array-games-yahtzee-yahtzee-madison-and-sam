@@ -135,7 +135,7 @@ public class Referee {
 	{ 
 		rollAllDice();
 		int rolls_left = 2;
-		System.out.println("It is P"+ (currentPlayer+1)+ "'s turn");
+		System.out.println("It is Player "+ (currentPlayer+1)+ "'s turn");
 		while (rolls_left>=0) {
 			System.out.println(rolls_left);
 			displayBoardAndDice();
