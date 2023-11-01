@@ -218,7 +218,6 @@ public class Referee {
 			System.out.println("Which row would you like to fill, put a number 0-12");
 			int category = myScanner.nextInt();
 			if(myScoreCards[currentPlayer].categoryIsEmpty(category)){
-				System.out.println("IT WORKED");
 				System.out.println("You got "+ theBoard.getScoreForCategory(category)+ " points");
 				myScoreCards[currentPlayer].setScoreForCategory(theBoard.getScoreForCategory(category),category);
 				categoryPicked=true;
