@@ -223,7 +223,7 @@ public class ScoreCard {
 		int total = 0;
 		//--------------------
 		// TODO: insert your code here. ******DONE*******
-		for (int i = 0; i < (myScores.length -1); i++){
+		for (int i = 0; i <= (myScores.length -1); i++){
 			if (myScores[i] < 0){
 				total = total;
 			}
